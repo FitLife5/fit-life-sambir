@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife Club</title>
+    <link rel="icon" href="../media/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <a href="#home">
+            <img src="../media/logo.jpg">
+        </a>
+
+        <!-- КНОПКА БУРГЕРА -->
+        <div class="burger" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <nav class="nav" id="nav">
+            <a href="index.html#home">Головна</a>
+            <a href="programs.html#programs">Програми</a>
+            <a href="index.html#contact">Контакти</a>
+  
+        </nav>
+    </header>
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div>
+            <h1>Твоє нове тіло починається тут</h1>
+            <p>Сучасний зал • Професійні тренери • Найкраща атмосфера</p><br />
+            <a href="programs.html#programs"><button class="btn">Перейти до плану</button></a><br /><br />
+            <a href="login.html"><button class="btn">Кабінет</button></a><br >
+        </div>
+    </section>
+
+  
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Зв’язатися з нами</h2>
+
+        <form action="https://script.google.com/macros/s/AKfycbwfyjvxC6LYHUynOruZiahHdPOuGNmi0Bn0J3-rWdFMbt7IHAsUGKxcpaMiJvgoWxsJvQ/exec" method="post">
+
+            <input type="text" name="name" placeholder="Ваше ім'я">
+            <input type="number" name="number" placeholder="Номер телефону">
+            <input type="email" name="email" placeholder="Email">
+            <textarea name="message" placeholder="Повідомлення"></textarea>
+
+            <button type="submit">Відправити</button>
+
+        </form>
+    </section>
+
+    <footer>
+        © 2026 FitLife Club | Всі права захищені
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById("nav");
+            nav.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

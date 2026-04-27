@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фітнес Вікторина - FitLife</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .game-section {
+            text-align: center;
+            min-height: 80vh;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing);
+            margin: 30px auto;
+            max-width: 800px;
+        }
+
+        .exercise-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+            .exercise-card img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+                display: block;
+            }
+
+            .exercise-card p {
+                padding: 15px;
+                color: var(--text-main);
+            }
+
+        .is-correct {
+            border-color: var(--primary-color) !important;
+            transform: scale(1.02);
+        }
+
+        .is-wrong {
+            border-color: #ef4444 !important;
+            opacity: 0.7;
+        }
+
+        #next-btn {
+            display: none;
+            margin: 20px auto;
+        }
+
+        .progress-box {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body class="sekuya-regular">
+
+    <header>
+        <a href="index.html"><img src="../media/logo.jpg" alt="Logo" class="btn1" style="height: 40px;"></a>
+        <div class="burger" onclick="toggleMenu()"> ☰ </div>
+        <nav id="nav"><a href="index.html">Головна</a><a href="profile.html">Профіль</a></nav>
+    </header>
+
+    <section class="game-section">
+        <h1>Квіз: Знавець вправ</h1>
+        <div class="progress-box">Питання <span id="current-num">1</span> з 5</div>
+
+        <div class="task-box" style="background: var(--bg-card); padding: 20px; border-radius: var(--border-radius); border: 1px solid var(--border-color); display: inline-block;">
+            <p>Де зображено: <strong id="target-name" style="color: var(--primary-color); font-size: 1.3rem;">...</strong></p>
+        </div>
+
+        <div class="game-grid" id="game-grid">
+        </div>
+
+        <button id="next-btn" class="btn">Наступне питання →</button>
+    </section>
+
+    <script>
+        // 1. БАЗА ДАНИХ ТЕСТІВ (5 пар)
+        const quizData = [
+            { target: "Присідання", options: [ {img: "test1.jpg", type: "wrong"}, {img: "test2.jpg", type: "correct"} ] },
+            { target: "Жим лежачи", options: [ {img: "test3.jpg", type: "correct"}, {img: "test4.jpg", type: "wrong"} ] },
+            { target: "Планка", options: [ {img: "test5.jpg", type: "wrong"}, {img: "test6.jpg", type: "correct"} ] },
+            { target: "Випади", options: [ {img: "test7.jpg", type: "correct"}, {img: "test8.jpg", type: "wrong"} ] },
+            { target: "Станова тяга", options: [ {img: "test9.jpg", type: "wrong"}, {img: "test10.jpg", type: "correct"} ] }
+        ];
+
+        let currentStep = 0;
+
+        // Пошук елементів (Методи DOM)
+        const grid = document.querySelector("#game-grid");
+        const targetName = document.querySelector("#target-name");
+        const nextBtn = document.querySelector("#next-btn");
+        const currentNumDisplay = document.querySelector("#current-num");
+
+        function loadStep() {
+            const data = quizData[currentStep];
+
+            // Оновлюємо текст (textContent)
+            targetName.textContent = data.target;
+            currentNumDisplay.textContent = currentStep + 1;
+            grid.innerHTML = ""; // Очищуємо старі фото
+            nextBtn.style.display = "none";
+
+            // Створюємо нові картки
+            data.options.forEach(opt => {
+                const card = document.createElement("div");
+                card.className = "exercise-card";
+                card.setAttribute("data-answer", opt.type); // Встановлюємо атрибут
+
+                card.innerHTML = `
+                    <img src="../media/${opt.img}" alt="Вправа">
+                    <p>Натисніть для вибору</p>
+                `;
+
+                // Подія наведення (mouseover)
+                card.addEventListener("mouseover", () => {
+                    console.log(`Курсор наведено на варіант: ${opt.img}`);
+                });
+
+                // Подія кліку (click)
+                card.onclick = () => {
+                    const isCorrect = card.getAttribute("data-answer") === "correct";
+
+                    if (isCorrect) {
+                        card.classList.add("is-correct");
+                        alert("🎉 Вірно!");
+                        nextBtn.style.display = "block"; // Показуємо кнопку "Далі"
+                    } else {
+                        card.classList.add("is-wrong");
+                        console.warn("Помилка: вибрано неправильний варіант.");
+                    }
+                };
+
+                grid.appendChild(card);
+            });
+        }
+
+        // Кнопка "Далі" (addEventListener)
+        nextBtn.addEventListener("click", () => {
+            currentStep++;
+            if (currentStep < quizData.length) {
+                loadStep();
+            } else {
+                alert("🏆 Вітаємо! Ви пройшли весь тест.");
+                location.reload();
+            }
+        });
+
+        // Запуск
+        console.group("Ініціалізація Квізу");
+        loadStep();
+        console.groupEnd();
+
+        function toggleMenu() { document.querySelector("#nav").classList.toggle("active"); }
+    </script>
+</body>
+</html>

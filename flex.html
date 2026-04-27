@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Флексібіліті  тренування та реабілітологія</title>
+    <link rel="icon" href="../media/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../css/flex.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="../media/logo.jpg">
+        </a>
+        <div class="burger" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <nav class="nav" id="nav">
+            <a href="index.html">Головна</a>
+            <a href="programs.html">Назад до програм</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h1>Флексібіліті тренування та реабілітація</h1>
+            <p>Обери свого тренера</p>
+        </div>
+    </section>
+
+    <section class="cards-section">
+        <div class="cards">
+
+            <div class="card">
+                <h3>Артур Тягучий</h3>
+                <img src="../media/artur.jpg" class="trphoto">
+                <p>Спеціаліст розтяжки, реабілітолог</p>
+                <a href="tiag.html"><button class="btn">Перейти до тренувань</button></a>
+            </div>
+
+            <div class="card">
+                <h3>Степан Флекс</h3>
+                <img src="../media/stepan1.jpg" class="trphoto">
+                <p>Тренер з йоги та розтяжки</p>
+                <a href="sflex.html"><button class="btn">Перейти до тренувань</button></a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        © 2026 FitLife Club | Всі права захищені
+    </footer>
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById("nav");
+            nav.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

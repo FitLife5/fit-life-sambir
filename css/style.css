@@ -1,0 +1,346 @@
+﻿:root {
+    /* Основний колір сайту */ --primary-color: #22c55e; /* Темніший варіант кнопки */
+    --primary-hover: #16a34a; /* Фон сторінки */
+    --bg-body: #0f172a; /* Фон блоків */
+    --bg-card: #020617; /* Основний колір тексту */
+    --text-main: white; /* Сірий текст */
+    --text-muted: #94a3b8; /* Колір рамок */
+    --border-color: #1e293b; /* Стандартний радіус */
+    --border-radius: 12px; /* Базовий відступ */
+    --spacing: 20px; /* Основний шрифт */
+    --font-main: 'Sekuya', Arial, sans-serif;
+
+}
+.sekuya-regular {
+    font-family: "Sekuya", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* FIX: прибрав криву штуку без селектора */
+body {
+    font-family: var(--font-main);
+    background: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.5; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Заголовки іншим шрифтом */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 1px; 
+}
+
+p, nav a, .price, button {
+    font-family: var(--font-main);
+    font-weight: 400;
+}
+
+.btn {
+    font-weight: 600;
+}
+
+/* Темна тема */
+body.dark-theme {
+    --bg-body: #020617;
+    --bg-card: #0f172a;
+    --text-main: white;
+    --border-color: #1e293b;
+}
+
+/* HEADER */
+header {
+    background: var(--bg-card);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+nav a {
+    color: var(--text-main);
+    margin-left: var(--spacing);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    nav a:hover {
+        color: var(--primary-color);
+    }
+
+
+    nav a:active {
+        opacity: 0.6;
+    }
+
+/* HERO */
+.hero {
+    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../media/bckr.jpg") center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--spacing);
+}
+
+    .hero h1 {
+        font-size: 50px;
+        margin-bottom: var(--spacing);
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+    }
+
+/* BUTTON */
+.btn {
+    --btn-color: var(--primary-color);
+    background: var(--btn-color);
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    .btn:hover {
+        background: var(--primary-hover);
+    }
+
+/* ПРОЗОРА КНОПКА ЛОГО*/
+.btn1 {
+    background: transparent;
+    padding: 0;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* SECTIONS */
+section {
+    padding: 60px 40px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: var(--spacing);
+}
+
+.card {
+    --card-border: var(--border-color);
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 1px solid var(--card-border);
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+    .card:hover {
+        transform: translateY(-8px);
+        border-color: var(--primary-color);
+    }
+
+.price {
+    font-size: 28px;
+    margin: 15px 0;
+    color: var(--primary-color);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--bg-card);
+    color: var(--text-muted);
+}
+
+/* FORM */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    border-radius: 6px;
+    border: none;
+}
+/* BURGER */
+.burger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* MOBILE MENU */
+@media (max-width: 768px) {
+
+    .burger {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        background: var(--bg-card);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+        nav.active {
+            display: flex !important;
+        }
+
+        nav a {
+            margin: 15px 0;
+        }
+}
+/*  MOBILE (до 480px) */
+
+@media (max-width: 480px) {
+
+    header {
+        text-align: center;
+    }
+
+    nav {
+        margin-top: 1px;
+    }
+
+        nav a {
+            display: block;
+            margin: 10px;
+        }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    section {
+        padding: 40px 15px;
+    }
+
+    /* КАРТКИ В ОДНУ КОЛОНКУ */
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Планшет (481px–768px) */
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    section {
+        padding: 50px 20px;
+    }
+
+    /* 2 КОЛОНКИ */
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* комп (1024px+)  */
+@media (min-width: 1024px) {
+
+    section {
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+}
+
+/* DISPLAY: flex (сітка відео) */
+.video-grid {
+    display: flex; /* елементи в ряд */
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* DISPLAY: inline-block */
+.video-card {
+    display: inline-block;
+    width: 300px;
+    position: relative; /* для absolute */
+}
+
+/* ВІДЕО */
+video {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* POSITION: absolute (бейдж NEW) */
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+
+/* POSITION: sticky (header) */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* POSITION: fixed (кнопка вверх) */
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px; 
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* DISPLAY: none (бургер меню) */
+@media (max-width: 768px) {
+
+    nav {
+        display: none;
+    }
+
+        nav.active {
+            display: flex;
+            flex-direction: column;
+        }
+}

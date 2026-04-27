@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Техніка вправ</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../media/favicon.png">
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="../media/logo.jpg" alt="logo">
+        </a>
+
+        <div class="burger" onclick="toggleMenu()">
+            ☰
+        </div>
+
+
+        <nav class="nav" id="nav">
+            <a href="index.html#home">Головна</a>
+            <a href="programs.html">Програми</a>
+            <a href="index.html#contact">Контакти</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Техніка виконання вправ</h1>
+    </section>
+
+    <section class="video-section">
+        <h2>Навчальні відео</h2>
+
+        <div class="video-grid">
+
+            <div class="video-card">
+                <span class="badge">NEW</span>
+                <video autoplay muted loop playsinline>
+                    <source src="../media/th1.mp4">
+                </video>
+                <p>Присідання: правильна постановка ніг і положення спини.</p>
+            </div>
+
+            <div class="video-card">
+                <video autoplay muted loop playsinline>
+                    <source src="../media/th2.mp4">
+                </video>
+                <p>Віджимання: контроль корпусу і техніка рук.</p>
+            </div>
+
+            <div class="video-card">
+                <video autoplay muted loop playsinline>
+                    <source src="../media/th3.mp4">
+                </video>
+                <p>Планка: як тримати тіло стабільно без прогину.</p>
+            </div>
+
+            <div class="video-card">
+                <video autoplay muted loop playsinline>
+                    <source src="../media/th4.mp4">
+                </video>
+                <p>Жим лежачи: безпечна техніка виконання.</p>
+            </div>
+
+            <div class="video-card">
+                <video autoplay muted loop playsinline>
+                    <source src="../media/th5.mp4">
+                </video>
+                <p>Тяга: правильна робота спини.</p>
+            </div>
+
+            <div class="video-card">
+                <video autoplay muted loop playsinline>
+                    <source src="../media/th6.mp4">
+                </video>
+                <p>Кардіо вправи для витривалості.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <button class="scroll-top" onclick="scrollToTop()">↑</button>
+
+    <footer>
+        © 2026 FitLife Club
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav").classList.toggle("active");
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>

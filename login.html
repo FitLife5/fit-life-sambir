@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід - FitLife Club</title>
+    <link rel="icon" href="../media/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="../media/logo.jpg" alt="Logo">
+        </a>
+        <div class="burger" onclick="toggleMenu()">
+            ☰
+        </div>
+        <nav class="nav" id="nav">
+            <a href="index.html#home">Головна</a>
+            <a href="index.html#plans">Абонементи</a>
+            <a href="programs.html#programs">Програми</a>
+            <a href="index.html#contact">Контакти</a>
+        </nav>
+    </header>
+
+    <section class="auth-section">
+        <h2>Вхід / Реєстрація</h2>
+
+        <div class="auth-form">
+            <input type="text" id="userName" placeholder="Ім'я (тільки для реєстрації)">
+            <input type="text" id="userLogin" placeholder="Логін">
+            <input type="password" id="userPassword" placeholder="Пароль">
+
+            <div class="auth-buttons">
+                <button class="btn" onclick="handleLogin()">Увійти</button>
+                <button class="btn btn-outline" onclick="handleRegister()">Зареєструватись</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbwh5A0F6MCJovlK3eN32hFnNOigIh75BJaRxZExFOOqplqA-Ak3kv255miOUW4nLk7vtw/exec";
+
+        async function handleLogin() {
+            const loginInput = document.getElementById("userLogin").value;
+            const passwordInput = document.getElementById("userPassword").value;
+
+            if (!loginInput || !passwordInput) {
+                alert("Будь ласка, введіть логін та пароль");
+                return;
+            }
+
+            try {
+                const res = await fetch(API_URL, {
+                    method: "POST",
+                    body: JSON.stringify({
+                        type: "login",
+                        login: loginInput,
+                        password: passwordInput
+                    })
+                });
+
+                const data = await res.json();
+
+                if (data.status === "success") {
+                    localStorage.setItem("user", JSON.stringify(data.user));
+                    window.location.href = "profile.html";
+                } else {
+                    alert("Невірний логін або пароль");
+                }
+            } catch (e) {
+                alert("Помилка підключення до сервера");
+            }
+        }
+
+        async function handleRegister() {
+            const nameInput = document.getElementById("userName").value;
+            const loginInput = document.getElementById("userLogin").value;
+            const passwordInput = document.getElementById("userPassword").value;
+
+            if (!nameInput || !loginInput || !passwordInput) {
+                alert("Заповніть всі поля для реєстрації");
+                return;
+            }
+
+            try {
+                const res = await fetch(API_URL, {
+                    method: "POST",
+                    body: JSON.stringify({
+                        type: "register",
+                        name: nameInput,
+                        login: loginInput,
+                        password: passwordInput
+                    })
+                });
+
+                const data = await res.json();
+
+                if (data.status === "success") {
+                    alert("Реєстрація успішна! Тепер увійдіть.");
+                } else {
+                    alert("Помилка при реєстрації");
+                }
+            } catch (e) {
+                alert("Сервер не відповідає");
+            }
+        }
+
+        function toggleMenu() {
+            document.getElementById("nav").classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

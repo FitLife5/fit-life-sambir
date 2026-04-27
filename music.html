@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Техніка вправ</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/music.css">
+    <link rel="icon" href="../media/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="../media/logo.jpg" alt="logo">
+        </a>
+
+        <div class="burger" onclick="toggleMenu()">
+            ☰
+        </div>
+
+
+        <nav class="nav" id="nav">
+            <a href="index.html#home">Головна</a>
+            <a href="programs.html">Програми</a>
+            <a href="index.html#contact">Контакти</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Музика для тренування</h1>
+    </section><br />
+
+              <section class="audio-container">
+
+
+                  <p class="p1">Winds of Plague - California</p>
+                  <audio controls  loop class="custom-player">
+                      <source src="../audio/Winds of Plague - California.mp3" type="audio/mpeg">
+                      Ваш браузер не підтримує елемент аудіо.
+                  </audio><br /><br />
+
+
+                  <p class="p1">We As Human - Bring to Life</p>
+                  <audio controls  loop class="custom-player">
+                      <source src="../audio/Hollywood Undead - Killin It.mp3" type="audio/mpeg">
+                      Ваш браузер не підтримує елемент аудіо.
+                  </audio><br /><br />
+
+
+                  <p class="p1">Through Fire - Wake The Dead</p>
+                  <audio controls loop class="custom-player">
+                      <source src="../audio/We As Human - Bring to Life.mp3" type="audio/mpeg">
+                      Ваш браузер не підтримує елемент аудіо.
+                  </audio><br /><br />
+
+
+                  <p class="p1">Through Fire - Breaking Point</p>
+                  <audio controls  loop class="custom-player">
+                      <source src="../audio/Through Fire - Breaking Point.mp3" type="audio/mpeg">
+                      Ваш браузер не підтримує елемент аудіо.
+                  </audio><br /><br />
+
+
+                  <p class="p1">Self Deception - I Give Up</p>
+                  <audio controls  loop class="custom-player">
+                      <source src="../audio/Self Deception - I Give Up.mp3" type="audio/mpeg">
+                      Ваш браузер не підтримує елемент аудіо.
+                  </audio><br /><br />
+
+
+                  <p class="p1">OTC - Trigger</p>
+                  <audio controls  loop  class="custom-player">
+                      <source src="../audio/OTC - Trigger.mp3" type="audio/mpeg">
+                      Ваш браузер не підтримує елемент аудіо.
+                  </audio><br /><br />
+
+
+                  <p class="p1">Ocean Jet - Unfettered</p>
+                  <audio controls  loop  class="custom-player">
+                      <source src="../audio/Ocean Jet - Unfettered.mp3" type="audio/mpeg">
+                      Ваш браузер не підтримує елемент аудіо.
+                  </audio><br /><br />
+
+
+                  <p class="p1">Infraction - Cyber Attack</p>
+                  <audio controls  loop class="custom-player">
+                      <source src="../audio/Infraction - Cyber Attack.mp3" type="audio/mpeg">
+                      Ваш браузер не підтримує елемент аудіо.
+                  </audio><br />
+
+
+              </section><br />
+
+    <button class="scroll-top" onclick="scrollToTop()">↑</button>
+
+    <footer>
+        © 2026 FitLife Club
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav").classList.toggle("active");
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>

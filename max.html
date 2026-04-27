@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренер Макс | FitLife</title>
+
+    <link rel="icon" href="../media/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/bruto.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a href="index.html">
+            <img src="../media/logo.jpg">
+        </a>
+        <div class="burger" onclick="toggleMenu()">
+            ☰
+        </div>
+        <nav class="header__nav" id="nav">
+            <a class="header__link" href="index.html">Головна</a>
+            <a class="header__link" href="programs.html">Назад до програм</a>
+            <a class="header__link" href="strength.html">Назад до силових</a>
+        </nav>
+    </header>
+
+    <!-- TRAINER -->
+    <section class="trainer">
+        <div class="trainer__info">
+            <img class="trainer__photo" src="../media/strong.jpg" alt="Тренер">
+
+            <div class="trainer__text">
+                <h1 class="trainer__name">Макс Стронг</h1>
+                <p class="trainer__desc">
+                    Персональний тренер з 11-річним досвідом.<br>
+                    Спеціалізація: важка атлетика та функціональні тренування.<br><br>
+
+                    Має сертифікацію з силового тренінгу.
+                    Пройшов курси з кросфіту та реабілітаційного фітнесу.
+                    Допомагає клієнтам розвивати силу, витривалість та фізичну форму.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM -->
+    <section class="program">
+        <h2 class="program__title">План тренувань</h2>
+
+        <div class="program__cards">
+
+            <div class="program-card">
+                <h3 class="program-card__day">День 1 — Функціональні вправи</h3>
+                <ul class="program-card__list">
+                    <li class="program-card__item">Берпі — 4x12</li>
+                    <li class="program-card__item">Стрибки на тумбу — 3x10</li>
+                    <li class="program-card__item">Бойові канати — 3x30 сек</li>
+                </ul>
+            </div>
+
+            <div class="program-card program-card--highlight">
+                <h3 class="program-card__day">День 2 — Сила</h3>
+                <ul class="program-card__list">
+                    <li class="program-card__item">Станова тяга — 4x8</li>
+                    <li class="program-card__item">Жим штанги лежачи — 4x10</li>
+                    <li class="program-card__item">Підтягування — 3xмакс</li>
+                </ul>
+            </div>
+
+            <div class="program-card">
+                <h3 class="program-card__day">День 3 — Витривалість</h3>
+                <ul class="program-card__list">
+                    <li class="program-card__item">Біг — 20 хв</li>
+                    <li class="program-card__item">Планка — 3x1 хв</li>
+                    <li class="program-card__item">Скакалка — 5 хв</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        © 2026 FitLife Club | Всі права захищені
+    </footer>
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById("nav");
+            nav.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

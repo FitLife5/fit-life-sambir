@@ -1,0 +1,135 @@
+﻿
+@import url('variables.css');
+
+/* ===== BASE ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background: var(--bg-body);
+    color: var(--text-main);
+}
+
+/* ===== LAYOUT ===== */
+
+.header {
+    background: var(--bg-card);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--bg-card);
+}
+
+/* ===== COMPONENTS ===== */
+
+section {
+    padding: 60px 40px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.header__link {
+    color: var(--text-main);
+    margin-left: var(--spacing);
+    text-decoration: none;
+}
+
+.header__link--active {
+    color: var(--primary-color);
+}
+
+/* TRAINER */
+
+.trainer {
+    padding: 60px 40px;
+}
+
+.trainer__info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing);
+}
+
+.trainer__photo {
+    width: 400px;
+    border-radius: var(--border-radius);
+}
+
+.trainer__name {
+    font-size: 50px;
+}
+
+.trainer__desc {
+    color: var(--text-muted);
+}
+
+/* PROGRAM */
+
+.program {
+    padding: 60px 40px;
+}
+
+.program__title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.program__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: var(--spacing);
+}
+
+.program-card {
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.program-card--highlight {
+    border-color: var(--primary-color);
+}
+
+.program-card__day {
+    margin-bottom: 10px;
+}
+
+.program-card__item {
+    margin-bottom: 20px;
+}
+
+.program-card__list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.program-card__item::before {
+    content: "🦾 ";
+}
+
+/* DISPLAY: none (бургер меню) */
+@media (max-width: 768px) {
+
+    nav {
+        display: none;
+    }
+
+        nav.active {
+            display: flex;
+            flex-direction: column;
+        }
+}

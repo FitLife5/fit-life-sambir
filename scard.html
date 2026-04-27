@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренер Соломія| FitLife</title>
+
+    <link rel="icon" href="../media/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/bruto.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a href="index.html">
+            <img src="../media/logo.jpg">
+        </a>
+        <div class="burger" onclick="toggleMenu()">
+            ☰
+        </div>
+       
+        <nav class="header__navЄ"  id="nav">
+            <a class="header__link" href="index.html">Головна</a>
+            <a class="header__link" href="programs.html">Назад до програм</a>
+            <a class="header__link" href="cardio.html">Назад до кардіо</a>
+        </nav>
+    </header>
+
+    <!-- TRAINER -->
+    <section class="trainer">
+        <div class="trainer__info">
+            <img class="trainer__photo" src="../media/cardi.jpg" alt="Тренер">
+
+            <div class="trainer__text">
+                <h1 class="trainer__name">Соломія Кардишин</h1>
+                <p class="trainer__desc">
+                    Професійний тренер з легкої атлетики та експерт у сфері схуднення.<br>
+                    Понад 4 роки допомагає клієнтам досягати бажаної форми через ефективні кардіо-тренування.<br><br>
+                    Спеціалізується на жироспалюванні, розвитку витривалості та загальному оздоровленні організму.
+                    У своїй роботі застосовує сучасні підходи та індивідуальні програми для кожного клієнта.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM -->
+    <section class="program">
+        <h2 class="program__title">План тренувань</h2>
+
+        <div class="program__cards">
+
+            <div class="program-card">
+                <h3 class="program-card__day">День 1 — Біг та витривалість</h3>
+                <ul class="program-card__list">
+                    <li class="program-card__item">Розминка — 10 хв</li>
+                    <li class="program-card__item">Біг 3 км — помірний темп</li>
+                    <li class="program-card__item">Планка — 3x45 сек</li>
+                    <li class="program-card__item">Розтяжка — 10 хв</li>
+                </ul>
+            </div>
+
+            <div class="program-card program-card--highlight">
+                <h3 class="program-card__day">День 2 — Інтенсивне кардіо</h3>
+                <ul class="program-card__list">
+                    <li class="program-card__item">Скакалка — 5 хв</li>
+                    <li class="program-card__item">Інтервальний біг — 20 хв (1 хв спринт / 2 хв ходьба)</li>
+                    <li class="program-card__item">Берпі — 3x12</li>
+                    <li class="program-card__item">Розтяжка — 10 хв</li>
+                </ul>
+            </div>
+
+            <div class="program-card">
+                <h3 class="program-card__day">День 3 — Легка атлетика та відновлення</h3>
+                <ul class="program-card__list">
+                    <li class="program-card__item">Розминка — 10 хв</li>
+                    <li class="program-card__item">Легка пробіжка / джогін — 25 хв</li>
+                    <li class="program-card__item">Стрибки на місці — 3x30 сек</li>
+                    <li class="program-card__item">Розтяжка — 15 хв</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        © 2026 FitLife Club | Всі права захищені
+    </footer>
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById("nav");
+            nav.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

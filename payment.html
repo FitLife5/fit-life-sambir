@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Оплата | FitLife</title>
+    <link rel="icon" href="../media/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/payment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="../media/logo.jpg" height="40">
+        </a>
+        <div class="burger" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <nav class="nav" id="nav">
+
+            <a href="index.html#home">Головна</a>
+
+        </nav>
+    </header>
+
+    <section>
+
+        <h2>💳 Оплата доступу</h2>
+
+        <div class="cards" style="max-width:500px; margin:auto;">
+            <div class="card">
+
+                <h3>Доступ до тренувань</h3>
+                <p>Після оплати введіть пароль</p>
+
+                <div class="price">✔ Разовий доступ</div>
+                <div class="price">1000грн</div>
+                <a href="https://www.privat24.ua/send/ja62a" target="_blank">
+                    <button class="btn" onclick="markPayment()">💳 Оплатити</button>
+                </a>
+
+                <br><br>
+
+                <button class="btn" onclick="confirmPayment()">Я оплатив(-ла)</button>
+                <br><br>
+
+                <input type="password" id="pass" placeholder="Введіть пароль після оплати">
+
+                <button class="btn" style="width:100%;" onclick="check()">Увійти</button>
+
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        © 2026 FitLife Club | Всі права захищені
+    </footer>
+    <script>
+        // коли натиснули оплату
+        function markPayment() {
+            localStorage.setItem("clickedPay", "true");
+        }
+
+        // перевірка кнопки
+        function confirmPayment() {
+            const clicked = localStorage.getItem("clickedPay");
+
+            if (clicked === "true") {
+                showMessage();
+            } else {
+                alert("❌ Спочатку натисни 'Оплатити'");
+            }
+        }
+
+        // повідомлення
+        function showMessage() {
+            const div = document.createElement("div");
+
+            div.innerText = "✅ Оплата успішна! Пароль: 1234";
+
+            div.style.position = "fixed";
+            div.style.top = "20px";
+            div.style.left = "50%";
+            div.style.transform = "translateX(-50%)";
+            div.style.background = "#22c55e";
+            div.style.color = "white";
+            div.style.padding = "15px 25px";
+            div.style.borderRadius = "10px";
+            div.style.zIndex = "999";
+
+            document.body.appendChild(div);
+
+            setTimeout(() => {
+                div.remove();
+            }, 5000);
+        }
+    </script>
+    <script>
+        function check() {
+            const password = document.getElementById("pass").value;
+
+            if (password === "1234") {
+                window.location.href = "secret.html";
+            } else {
+                alert("❌ Невірний пароль");
+            }
+        }
+    </script>
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById("nav");
+            nav.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

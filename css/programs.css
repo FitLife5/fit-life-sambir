@@ -1,0 +1,100 @@
+﻿
+@import url('style.css');
+
+
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../media/bckr.jpg") center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--spacing);
+}
+
+    .hero h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+    }
+
+.cards-section {
+    padding: 60px 40px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+    .cards-section h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 32px;
+    }
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: var(--spacing);
+}
+
+.card {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: 0.3s;
+}
+
+    
+.card:hover {
+        transform: translateY(-8px);
+        border-color: var(--primary-color);
+    }
+
+.btn {
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background: var(--primary-color);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: var(--bg-card);
+}
+
+tr:nth-child(odd) {
+    background: #111827;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--bg-card);
+    color: var(--text-muted);
+}
+
+/* DISPLAY: none (бургер меню) */
+@media (max-width: 768px) {
+
+    nav {
+        display: none;
+    }
+
+        nav.active {
+            display: flex;
+            flex-direction: column;
+        }
+}

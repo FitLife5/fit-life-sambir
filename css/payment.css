@@ -1,0 +1,67 @@
+﻿/* RESET тільки для цієї сторінки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* SECTION */
+section {
+    padding: 60px 20px;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+/* CARD */
+.card {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+/* TEXT */
+h2 {
+    margin-bottom: 20px;
+}
+
+p {
+    color: var(--text-muted);
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    background: var(--bg-body);
+    color: var(--text-main);
+}
+
+/* BUTTON FULL WIDTH */
+.btn {
+    width: 100%;
+}
+
+/* МАЛЕНЬКА АДАПТИВКА */
+@media (max-width: 500px) {
+    section {
+        padding: 40px 15px;
+    }
+}
+
+/* DISPLAY: none (бургер меню) */
+@media (max-width: 768px) {
+
+    nav {
+        display: none;
+    }
+
+        nav.active {
+            display: flex;
+            flex-direction: column;
+        }
+}

@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій Профіль - FitLife</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/prof.css">
+</head>
+<body class="sekuya-regular">
+
+    <header>
+        <a href="index.html">
+            <img src="../media/logo.jpg" alt="Logo" class="btn1" style="height: 40px;">
+        </a>
+        <div class="burger" onclick="toggleMenu()"> ☰ </div>
+
+        <nav class="nav" id="nav">
+            <a href="index.html#home">Головна</a>
+            <a href="programs.html#programs">Програми</a>
+            <a href="index.html#contact">Контакти</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2 id="welcome">Привіт!</h2>
+
+        <div class="user-info">
+            <p class="card">Ваш поточний абонемент: <strong id="user-status">Завантаження...</strong></p>
+        </div><br />
+
+        <div class="cards">
+            <div class="card">
+                <h3>Базовий</h3>
+                <div class="price">800 грн</div>
+                <button class="btn btn-buy" data-plan="Базовий">Обрати</button>
+            </div>
+
+            <div class="card">
+                <h3>Стандарт</h3>
+                <div class="price">1200 грн</div>
+                <button class="btn btn-buy" data-plan="Стандарт">Обрати</button>
+            </div>
+
+            <div class="card">
+                <h3>VIP</h3>
+                <div class="price">2500 грн</div>
+                <button class="btn btn-buy" data-plan="VIP">Обрати</button>
+            </div>
+        </div><br />
+        <div class="card">
+            <h3>Гра "Вправи"</h3><br />
+            <a href="game.html"><button class="btn">Перейти</button></a><br>
+            </div>
+            <section class="activity-section" style="margin-top: 20px; text-align: center;">
+                <div class="card" style="display: inline-block; padding: 20px;">
+                    <label for="exercise-select">Що ви сьогодні робили?</label><br><br>
+                    <select id="exercise-select" style="padding: 10px; border-radius: 5px;">
+                        <option value="100">Біг (100 ккал)</option>
+                        <option value="150">Плавання (150 ккал)</option>
+                        <option value="200">Силове тренування (200 ккал)</option>
+                        <option value="50">Йога (50 ккал)</option>
+                    </select>
+                    <p style="font-size: 1.2rem; margin-top: 15px;">🔥 Спалено за тренування: <strong id="click-count">0</strong> ккал</p>
+                    <button id="confirm-btn" class="btn">Підтвердити вправу</button>
+                </div>
+            </section>
+
+            <div class="actions" style="text-align: center;">
+                <br>
+                <button onclick="logout()" class="btn">Вийти з аккаунту</button>
+            </div>
+</section>
+
+    <script>
+        // Меню бургер
+        function toggleMenu() {
+            const nav = document.querySelector("#nav");
+            nav.classList.toggle("active");
+        }
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            const API_URL = "https://script.google.com/macros/s/AKfycbwh5A0F6MCJovlK3eN32hFnNOigIh75BJaRxZExFOOqplqA-Ak3kv255miOUW4nLk7vtw/exec";
+
+            let user = JSON.parse(localStorage.getItem("user"));
+            let totalCalories = 0;
+
+            if (!user) {
+                window.location.href = "login.html";
+                return;
+            }
+
+            // 1. Пошук елементів (Методи DOM для звіту)
+            const welcomeEl = document.querySelector("#welcome");
+            const statusEl = document.querySelector("#user-status");
+            const calorieDisplay = document.querySelector("#click-count");
+            const exerciseSelect = document.querySelector("#exercise-select");
+            const confirmBtn = document.querySelector("#confirm-btn"); 
+            const buyButtons = document.querySelectorAll(".btn-buy");
+
+            // 2. Вивід початкових даних (textContent)
+            welcomeEl.textContent = "Вітаємо, " + (user.name || user.login);
+            statusEl.textContent = user.plan || "Немає";
+
+            // 3. ЛОГІКА КАЛОРІЙ (Кнопка підтвердити)
+            confirmBtn.onclick = () => {
+                const caloriesToAdd = parseInt(exerciseSelect.value); // Читаємо value
+                totalCalories += caloriesToAdd;
+                calorieDisplay.textContent = totalCalories; // Оновлюємо DOM
+
+                // Ефект успіху
+                calorieDisplay.style.transform = "scale(1.2)";
+                setTimeout(() => calorieDisplay.style.transform = "scale(1)", 200);
+            };
+
+            // 4. ЛОГІКА ТАРИФІВ (Кнопки Обрати)
+            buyButtons.forEach(btn => {
+                btn.onclick = async () => {
+                    const newPlan = btn.getAttribute("data-plan"); 
+                    statusEl.textContent = "Оновлення...";
+
+                    try {
+                        const res = await fetch(API_URL, {
+                            method: "POST",
+                            body: JSON.stringify({
+                                type: "buy",
+                                id: user.id,
+                                plan: newPlan
+                            })
+                        });
+                        const data = await res.json();
+
+                        if (data.status === "success") {
+                            user.plan = newPlan;
+                            localStorage.setItem("user", JSON.stringify(user));
+                            statusEl.textContent = newPlan;
+                        }
+                    } catch (e) {
+                        console.error("Сервер помилка, оновлюємо локально");
+                        statusEl.textContent = newPlan;
+                    }
+                };
+            });
+        });
+
+        function logout() {
+            localStorage.removeItem("user");
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>

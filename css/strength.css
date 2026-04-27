@@ -1,0 +1,105 @@
+﻿@import url('style.css');
+
+/* HERO */
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../media/bckr.jpg") center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--spacing);
+}
+
+    .hero h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+    }
+
+/* SECTION */
+.cards-section {
+    padding: 60px 40px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* CARDS GRID */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing);
+}
+
+/* CARD */
+.card {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: 0.3s;
+}
+
+    .card:hover {
+        transform: translateY(-8px);
+        border-color: var(--primary-color);
+    }
+
+    /* TEXT */
+    .card h3 {
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+
+    .card p {
+        color: var(--text-muted);
+        margin-bottom: 15px;
+    }
+
+/* BUTTON */
+.btn {
+    margin-top: 10px;
+}
+
+/*TRAINERS PHOTO*/
+.trphoto {
+    width: 200px ;
+    height: 200px;
+    border-radius: 15px;
+}
+
+/* HEADER FIX (щоб вигляд був такий як в інших) */
+header {
+    background: var(--bg-card);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 8px;
+}
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--bg-card);
+    color: var(--text-muted);
+}
+/* DISPLAY: none (бургер меню) */
+@media (max-width: 768px) {
+
+    nav {
+        display: none;
+    }
+
+        nav.active {
+            display: flex;
+            flex-direction: column;
+        }
+}

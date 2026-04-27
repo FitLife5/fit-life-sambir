@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife Club - Програми тренувань</title>
+    <link rel="stylesheet" href="../css/programs.css">
+    <link rel="icon" href="../media/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="../media/logo.jpg">
+        </a>
+
+        <!-- БУРГЕР -->
+        <div class="burger" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <!-- МЕНЮ -->
+
+        <nav class="nav" id="nav">
+            <a href="index.html#home">Головна</a>
+            <a href="programs.html#programs">Програми</a>
+            <a href="index.html#contact">Контакти</a>
+        </nav>
+    </header>
+    <!-- HERO -->
+    <section class="hero" id="programs">
+        <div>
+            <h1>Тренувальні програми</h1>
+            <p>Вибирай свій шлях до здоров’я та сили</p>
+        </div>
+    </section>
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById("nav");
+            nav.classList.toggle("active");
+        }
+    </script>
+
+    <!-- PROGRAM CARDS -->
+    <section class="cards-section">
+        <h2>Наші програми</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Сила</h3>
+                <p>Програма для розвитку м’язової сили</p>
+                <a href="strength.html"><button class="btn">Обрати</button></a>
+            </div>
+
+            <div class="card">
+                <h3>Кардіо</h3>
+                <p>Покращення витривалості та спалювання калорій</p>
+                <a href="cardio.html"><button class="btn">Обрати</button></a>
+            </div>
+
+            <div class="card">
+                <h3>Флексібіліті</h3>
+                <p>Розтяжка,гнучкість та реабілітація </p><br>
+                <a href="flex.html"><button class="btn">Обрати</button></a>
+            </div>
+            <div class="card">
+                <h3>VIP тренер</h3><br />
+                <a href="payment.html"><button class="btn">Перейти</button></a>
+            </div>
+            <div class="card">
+                <h3>Відео</h3>
+                <p>Відео технік </p>
+                <a href="technique.html"><button class="btn">Перейти</button></a>
+            </div>
+            <div class="card">
+                <h3>Музика</h3>
+                <p>Музика для тренування </p>
+                <a href="music.html"><button class="btn">Перейти</button></a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EXERCISE TABLE -->
+    <section id="schedule">
+        <h2>
+            Таблиця вправ<br />
+            (базові вправи без тренера)
+        </h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Вправа</th>
+                    <th>Підходи / Повторення</th>
+                    <th>Час</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Присідання</td>
+                    <td>3×12</td>
+                    <td>10 хв</td>
+                </tr>
+                <tr>
+                    <td>Віджимання</td>
+                    <td>3×15</td>
+                    <td>8 хв</td>
+                </tr>
+                <tr>
+                    <td>Планка</td>
+                    <td>3×1 хв</td>
+                    <td>5 хв</td>
+                </tr>
+                <tr>
+                    <td>Біг на місці</td>
+                    <td>—</td>
+                    <td>15 хв</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        © 2026 FitLife Club | Всі права захищені
+    </footer>
+
+    <script>
+        function chooseProgram(program) {
+            alert("Ви обрали програму: " + program);
+        }
+    </script>
+
+</body>
+</html>
